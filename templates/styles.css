@@ -1,0 +1,136 @@
+.nav-options{
+    font-size: 1.2rem;
+}
+
+.nav-options ul li{
+    padding: 10px;
+}
+
+.mail-us h6 a{
+    text-decoration: none;
+    color: white;
+}
+
+.mail-us h6 a:hover{
+    text-decoration: underline;
+}
+
+.main-content{
+    background-image: url(c2.jpg);
+    background-repeat: no-repeat;
+    background-size: 100% 100vh;
+}
+
+.heading{
+    padding-top: 18%;
+    font-size: 30px;
+    font-style: italic;
+    padding-bottom: 18%;
+    color: whitesmoke;
+    
+}
+
+.intro{
+    background-color: red;
+    opacity: 0.7;
+    padding: 5px;
+    padding-right: 10px;
+    padding-left: 10px;
+    border: 1px red;
+    border-radius: 5px;
+}
+
+.list-items ul{
+    list-style: none;
+}
+
+.list-items ul li{
+    padding: 5px;
+}
+
+.footer{
+    background-color: #d1c4e9;
+    margin: 0px auto;
+    padding: 20px 0px 20px 0px;
+}
+
+.about-design{
+    background-image: url(about.jpg);
+    background-size: 100% 30vh;
+    background-repeat: no-repeat;
+    padding: 5.2rem;
+    color: white;
+}
+
+.general-about h4{
+    padding-bottom: 5px;
+    text-decoration: underline;
+}
+
+.font-class{
+    font-family: 'Anton', sans-serif;
+font-family: 'Bungee Inline', cursive;
+font-family: 'Fuzzy Bubbles', cursive;
+font-family: 'Montagu Slab', serif;
+letter-spacing: 2px;
+}
+
+.plates-overview{
+    height: 25%;
+    width: 100%;
+    border-radius: 10px;
+}
+
+#registration_result1{
+    display: inline-block;
+    text-align: center;
+}
+
+#inner_content, #inner_content1{
+    text-transform: uppercase;
+    border-radius: 10px;
+    text-align: center;
+    margin: auto;
+    padding: auto;
+    font-family: 'Charles Wright', sans-serif;
+                                                
+margin-top: 0.3rem;
+padding-left: 1rem;
+padding-right: 1rem;
+
+}
+
+#registration_result{
+    background-color: silver;
+    display: inline-block;
+}
+
+.threeD {
+    text-transform: uppercase;
+    font-family: verdana;
+    color: #f5f5f5;
+    text-shadow: 1px 1px 1px #919191,
+        1px 2px 1px #919191,
+        1px 3px 1px #919191,
+        1px 4px 1px #919191,
+        1px 5px 1px #919191,
+        1px 6px 1px #919191,
+        1px 7px 1px #919191,
+        1px 8px 1px #919191,
+        1px 9px 1px #919191,
+        1px 10px 1px #919191,
+    1px 18px 6px rgba(16,16,16,0.4),
+    1px 22px 10px rgba(16,16,16,0.2),
+    1px 25px 35px rgba(16,16,16,0.2),
+    1px 30px 60px rgba(16,16,16,0.4);
+}
+
+fieldset{
+    border: 10px solid transparent; 
+    border-top-color: black; 
+    box-sizing: border-box; 
+    grid-area: 1 / 1; 
+    padding: 20px; 
+    width: inherit; 
+    transform: rotate(180deg);
+  }

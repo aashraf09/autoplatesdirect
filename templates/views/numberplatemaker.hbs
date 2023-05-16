@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    {{>header}}
+</head>
+<script>
+
+    console.log(`${{this._id}}`);
+          //window.location.href = "http://localhost:3000/number-plate-maker/61c62252a75838a12da71e1f";
+    
+    //function test(form) {
+    //    try {
+    //        document
+      //      }
+
+        //}catch(err){
+          //  return false;
+        //}
+    //return true;
+    //}
+</script>
+<body>
+    
+    {{>navbar}}
+    <div class="about-design font-class mb-5">
+        <h3>Number Plate Maker</h3>
+    </div>
+    <div class="container" id="content-to-hide">
+        <div class="row mt-5 row-content">
+            <div class="col-12 col-/sm-4 order-last order-sm-first">
+                <form action="/number-plate-maker" method="POST">
+                    <div class="form-group row">
+                        <label for="registrationNumber" id="registration_number"
+                            class="col-sm-3 col-form-label">REGISTRATION</label>
+                        <div class="col-sm-9 col-9">
+                            <input type="text" class="form-control justify-content-end ml-3" 
+                                id="registrationNumber"
+                                name="registrationNumber" placeholder="Registration Number" 
+                                {{!-- oninput="myFunction()" --}}
+                                >
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <label for="plateType" class=" col-12 col-sm-3 col-form-label">Plate Type</label>
+                        <select class="col-md-9" name="plateType" id="plate-types" onchange="changeType()">
+                            <option value="legal">Legal</option>
+                            <option value="show-plate">Show Plate</option>
+                        </select>
+                    </div>
+                    <div class="form-group row">
+                        <label for="plateStyle" class=" col-12 col-sm-3 col-form-label">Plate Style</label>
+                        <select class="col-md-9" name="plateStyle" id="plate-styles" onchange="transform3D()">
+                            <option value="simple-plates">Simple Plates</option>
+                            <option value="3d-plates">3D Plates</option>
+                            <option value="4d-plates">4D Plates</option>
+                        </select>
+                    </div>
+                    <div class="form-group row">
+                        <label for="plate" class="plates col-12 col-sm-3 col-form-label"> Plates: </label>
+                        <select class="col-sm-9 col-9" name="plate" id="plate"  onchange="my(), priceChanger()">
+                            <option value="front-and-rear">Front & Rear</option>
+                            <option value="front-plates" class="front-plate" id="front">Front Only</option>
+                            <option value="rear-plates" id="rear">Rear Only</option>
+                        </select>
+                    </div>
+                    <div class="form-group row">
+                        <label for="frontPlateSize" class=" col-12 col-sm-3 col-form-label">Front Size</label>
+                        <select class="col-sm-9 col-9" name="frontPlateSize" id="f-plate-size">
+                            <option value="Standard Car (20.5 x 4.4 in)">Standard Car (20.5 x 4.4 in)</option>
+                        </select>
+                    </div>
+                    <div class="form-group row">
+                        <label for="rearPlateSize" class=" col-12 col-sm-3 col-form-label"> Rear Size</label>
+                        <select class="col-sm-9 col-9" name="rearPlateSize" id="r-plate-size">
+                            <option value="Standard Car (20.5 x 4.4 in)">Standard Car (20.5 x 4.4 in)</option>
+                        </select>
+                    </div>
+                    <div class="form-group row">
+                        <label for="plateBorder" class=" col-12 col-sm-3 col-form-label"> Border </label>
+                        <select class="col-sm-9 col-9" name="plateBorder" onchange="changeBorder(), priceChanger()"
+                            id="plate-border">
+                            <option value="no-border">No border</option>
+                            <option value="border-black">Black</option>
+                            <option value="border-red">Red</option>
+                            <option value="border-blue">Blue</option>
+                            <option value="border-green">Green</option>
+                            <option value="border-pink">Pink</option>
+
+                        </select>
+                    </div>
+                    <div class="form-group row">
+                        <label for="slogan" class="col-sm-3 col-12 col-form-label">Your Slogan</label>
+                        <div class="col-sm-9 col-9">
+                            <input type="text" class="form-control" id="slogan" name="slogan" placeholder="Slogan">
+                        </div>
+                    </div>
+                    <div class="col-12 col-sm-8">
+
+                <div class="col  plates-overview offset-sm-1 col-10" id="registration_result">
+                    <div class=" text-overview justify-self-center">
+                        <h3 id="inner_content" class="display-1">Enter Reg</h3>
+                    </div>
+                </div>
+                <br>
+                <div class="col plates-overview offset-sm-1 mt-3 bg-warning col-10 " id="registration_result1">
+                    <div class=" text-overview justify-self-center">
+                        <h3 class="display-1" id="inner_content1">Enter Reg</h3>
+                    </div>
+                </div>
+                <div class="order-total row row-content offset-sm-1  mt-3">
+                    <p class="money"> <strong>Your order total: </strong>
+                    <div class="price ml-3"><i class="fas fa-pound-sign"></i><strong id="prices">20.98</strong> </div>
+                    </p>
+                </div>
+                <div class="final-button">
+                    <button type="button" class="btn btn-primary btn-lg offset-sm-1" onclick="getRegistration()">Go To
+                        Basket</button>
+                </div>
+            </div>
+            <div class="hide-content" id="to-display">
+        <div class="container mb-5">
+            <div class="row row-container">
+                <div class="col-12 col-md-4 mt-sm-4 justify-self-center">
+                    <h4>Choose Delivery Method</h4>
+                    <select name="deliveryTime" id="delivery-time">
+                        <option value="same-day">Next Working Day (On orders before 2pm)</option>
+                        <option value="normal">With-in next 3-5 Working Days</option>
+                    </select>
+                </div>
+                <div class="col-6 col-md-2 justify-self-center">
+                    <img src="/badge.gif" class="ml-sm-4" alt="">
+                    <p class="text-center">SUPERIOR QUALITY</p>
+                </div>
+                <div class="col-6 col-md-2 justify-self-center">
+                    <img class="ml-sm-4" src="recycle.gif" alt="">
+                    <p class="text-center">HASSLE FREE RETURNS</p>
+                </div>
+                <div class="col-12 col-md-4 ">
+                    <input type="submit" value="Proceed To Payment"  class="btn btn-primary text-white btn-lg offset-sm-1 align-self-center mt-sm-4"/>
+                </div>
+                <hr>
+            </div>
+        </div>
+        <div class="container">
+            <div class="row row-container">
+                <div class="col-12 col-sm-4">
+                    <h4>Registration: <span id="basket-registration">{{this.registrationNumber}} </span> </h4> <br>
+                    <h4>Plate(s) Type: <span id="basket-plates"> {{this.plateType}} </span> </h4> <br>
+                    <h4>Plate(s) Style: <span id="basket-styles">{{this.plateStyle}} </span> </h4> <br>
+                    <h4>Plate(s): <span id="basket-plate">{{this.plate}} </span> </h4> <br>
+                    <h4>Border: <span id="basket-border">{{this.border}} </span> </h4> <br>
+                    <h4>Front Size: Standard Size <span id="basket-border">{{this.frontPlateSize}} </span></h4> <br>
+                    <h4>Rear Size: Standard Size <span id="basket-border">{{this.rearPlateSize}} </span></h4> <br>
+
+                </div>
+                <div class="col-12 col-sm-1"></div>
+                <div class="col-12 col-sm-7">
+                    <div class="col  final-view offset-sm-1 col-10" id="final_result">
+                        <div class=" text-overview justify-self-center">
+                            <h3 id="final-view" class="display-1"></h3>
+                        </div>
+                    </div>
+                    <br>
+                    <div class="col final-view offset-sm-1 mt-3 bg-warning col-10 " id="final_result1">
+                        <div class=" text-overview justify-self-center">
+                            <h3 class="display-1" id="final-view1"></h3>
+                        </div>
+                    </div>
+                    <div class="order-total row row-content offset-sm-1  mt-3">
+                        <p class="money"> <strong>Your order total: </strong>
+                        <div class="price ml-3"><i class="fas fa-pound-sign"></i><strong id="final-price"></strong> </div>
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="container mt-4 mb-5">
+            <div class="row row-content justify-content-center">
+                <div class="col-12 col-sm-4 ">
+                    <button class="btn btn-large btn-primary pl-5 pr-5 pt-1 pb-1 " id="goBack" onclick="goBack()">Back</button>
+                </div>
+                <div class="col-12 col-sm-1"></div>
+                <div class="col-12 col-sm-4 ">
+                    <button type="submit" value="number" class="btn btn-large btn-primary pl-5 pr-5 pt-1 pb-1 ">Proceed To Payment</button>
+                </div>
+            </div>
+        </div>
+    </div>
+                </form>
+            </div>
+            
+        </div>
+    </div>
+    
+
+    <footer class="footer">
+        <div class="container">
+            <div class="row">
+                <div class="col-3 col-sm-2">
+                    <h5>Links</h5>
+                    <ul class="list-unstyled">
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="aboutus.html">About</a></li>
+                        <li><a href="blog.html">Blog</a></li>
+                        <li><a href="contactus.html">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="col-7 col-sm-5">
+                    <h5>Our Address</h5>
+                    <address>
+                        14 Havre des Pas, St Helier, Jersey JE2 4PU, Jersey<br>
+                        United kingdom<br>
+                        <i class="fa fa-phone fa-lg"></i> +44 1534 888111<br>
+                        <i class="fa fa-fax fa-lg"></i> +44 1534 888111<br>
+                        <i class="fa fa-envelope fa-lg"></i> <a
+                            href="mailto:info@autolpatesdirect.com">info@autoplatesdirect.com</a>
+                    </address>
+                </div>
+                <div class="col-12 col-sm-4 align-self-center">
+                    <div class="text-center">
+                        <a class="btn btn-social-icon btn-google" href="http://google.com/+"><i
+                                class="fa fa-google fa-lg"></i></a>
+                        <a class="btn btn-social-icon btn-" href="mailto:info@autoplatesdirect.com"><i
+                                class="fa fa-envelope fa-lg"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="row justify-content-center">
+                <div class="col-auto">
+                    <p>© Copyright 2021 Auto Plates Direct </p>
+                </div>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>
